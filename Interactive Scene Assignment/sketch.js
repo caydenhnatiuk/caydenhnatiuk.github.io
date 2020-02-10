@@ -4,7 +4,7 @@
 //
 // Scene where you can move the character around
 
-
+let sunSize = 150;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -15,15 +15,16 @@ function draw() {
   character();
 }
 
-function keyPressed(){
-  
-}
-
 function background1(){
-  let sunSize = 150;
+  
   if(keyCode === UP_ARROW){
-    sunSize = sunSize +1;
-    return sunSize;
+    sunSize = sunSize +10;
+  }
+  if(keyCode === DOWN_ARROW){
+    sunSize = sunSize -10;
+  }
+  if(keyCode === RETURN){
+    sunSize = 150;
   }
   background(53,179,204);
   fill(123,252,3);
