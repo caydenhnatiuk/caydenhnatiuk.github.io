@@ -2,35 +2,55 @@
 // Cayden
 // Feb 6th/2020
 //
-// Scene where you can move the character around
+// Scene where you can move the character around and interact with
 
-let sunSize = 150;
+let sunSize = 150;//global variable for sunsize
+let back = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
   background(220);
-  background1();
+  currentBack();
   character();
+  textSize(32);
+  text("Cayden Hnatiuk",10,windowHeight-30);
+}
+
+function mousePressed(){
+  if(back < 3){
+    back = back = 1;
+  }
+  else{
+    back = 0;
+  } 
+}
+
+function currentBack(){
+  mousePressed();
+}
+
+function sunChange(){// changes the size of the sun
+  if(keyCode === RETURN){//stops the sun from expanding or decreasing
+    sunSize = 150;
+  }
+  if(keyCode === UP_ARROW){
+    sunSize = sunSize +10;//increases size of sun
+  }
+  if(keyCode === DOWN_ARROW){//decreases size of sun
+    sunSize = sunSize -10;
+  }
 }
 
 function background1(){
-  
-  if(keyCode === UP_ARROW){
-    sunSize = sunSize +10;
-  }
-  if(keyCode === DOWN_ARROW){
-    sunSize = sunSize -10;
-  }
-  if(keyCode === RETURN){
-    sunSize = 150;
-  }
+  sunChange();
   background(53,179,204);
   fill(123,252,3);
-  rect(0,(windowHeight/4)*3,windowWidth,windowHeight);
+  rect(0,(windowHeight/4)*3,windowWidth,windowHeight);//grass
   fill(240,252,3);
-  ellipse(windowWidth/5,windowHeight/5,sunSize,sunSize);
+  ellipse(windowWidth/5,windowHeight/5,sunSize,sunSize);//sun
 }
 
 function character(){
