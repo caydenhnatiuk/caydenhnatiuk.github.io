@@ -19,17 +19,18 @@ function draw() {
   text("Cayden Hnatiuk",10,windowHeight-30);
 }
 
-function mousePressed(){
+function mouseWheel(){
   if(back < 3){
-    back = back = 1;
+    back = back + 1;
   }
   else{
     back = 0;
   } 
+  console.log(back);
 }
 
 function currentBack(){
-  mousePressed();
+  mouseWheel();
 }
 
 function sunChange(){// changes the size of the sun
