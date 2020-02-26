@@ -19,15 +19,7 @@ function draw() {
   text("Cayden Hnatiuk",10,windowHeight-30);
 }
 
-function mouseWheel(){
-  if(back < 3){
-    back = back + 1;
-  }
-  else{
-    back = 0;
-  } 
-  console.log(back);
-}
+
 
 function currentBack(){
   mouseWheel();
