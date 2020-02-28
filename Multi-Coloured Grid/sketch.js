@@ -3,12 +3,20 @@
 //CS30
 //Feb. 27th / 2020
 
-let gridSpacing = 30;
+let gridSpacing = 20;// defining the size of squares
 
 function mouseClicked(){
-  if(!gridSpacing === 1){
+  rectGrid();
+  if (keyIsDown(SHIFT)){
+    gridSpacing += 1;
+  }
+  else if (gridSpacing !== 8){
     gridSpacing -= 1;
   }
+}
+
+function keyTyped(){
+  rectGrid();
 }
 
 function rectGrid(){
@@ -26,7 +34,5 @@ function setup() {
 }
 
 function draw() {
-  if(mouseClicked()){
-    rectGrid();
-  }
+  
 }
