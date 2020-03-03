@@ -13,11 +13,54 @@ function draw() {
   //drawBasicGrid(220);
 
   push();
+  strokeWeight(4);
   translate(width/2,height/2);
   ellipseMode(CENTER);
-  ellipse(0,0,width*0.3,width*0.3);
+  ellipse(0,0,width*0.33,width*0.33);
+
+//ticks
+  for (let i = 0; i < 60; i++){
+    if(i%5 === 0){
+      strokeWeight(4);
+      line(width*0.15,0,width*0.13,0);
+    }
+    else{
+      strokeWeight(2);
+      line(width*0.15,0,width*0.14,0);
+    }
+    rotate(radians(6));
+  }
+  
+  //seconds hand
+  rotate(radians(-90));
+  push();
+  stroke(255,0,0);
+  strokeWeight(2);
+  rotate(radians(second()*6));
+  line(0,0,width*0.15,0);
   pop();
-  let fifthTick = 0;
+
+  push();
+  rotate(radians(-90));
+  push();
+  stroke(0);
+  strokeWeight(3);
+  rotate(radians(minute()*6 + second()/10));
+  line(0,0,width*0.15,0);
+  pop();
+
+  push();
+  rotate(radians(-90));
+  push();
+  stroke(0);
+  strokeWeight(4);
+  rotate(radians(hour()*6));
+  line(0,0,width*0.12,0);
+  pop();
+
+
+  pop();
+
 
 
 
