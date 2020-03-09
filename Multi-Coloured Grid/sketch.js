@@ -6,6 +6,8 @@
 let gridSpacing = 20;// defining the size of squares
 
 function mouseClicked(){
+  //resizes gridSpacing based on mouse click with shift
+  windowResized();
   rectGrid();
   if (keyIsDown(SHIFT)){
     gridSpacing += 1;
@@ -15,15 +17,24 @@ function mouseClicked(){
   }
 }
 
+function windowResized(){
+  resizeCanvas(windowWidth,windowHeight);
+}
+
+
 function keyTyped(){
+  //resets grid if a key is typed
   rectGrid();
 }
 
 function rectGrid(){
+  // Draws grid
   for(let x = 0; x < width; x += gridSpacing){
     for(let y = 0; y < height; y += gridSpacing){
       fill(random(1,255),random(1,255),random(1,255));
-      rect(x,y,gridSpacing,gridSpacing);
+      if(x + gridSpacing <= width && y + gridSpacing <= height){
+        rect(x,y,gridSpacing,gridSpacing);
+      }
     }
   }
 }

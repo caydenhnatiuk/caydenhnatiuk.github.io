@@ -3,6 +3,7 @@ let rectWidth, rectHeight, speedX, speedY;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //Creates rectangle and gives random speed
   rectWidth = 200; rectHeight = 300; speedX = random(3, 8); speedY = random(3, 8);// Places rectangle
 }
 
@@ -13,6 +14,7 @@ function draw() {
 }
 
 function move() {
+  // changes direction after bounces off wall
   rectWidth += speedX; rectHeight += speedY;
   if (rectHeight >= height - 75 || rectHeight <= 0) {
     speedY = speedY * -1; 

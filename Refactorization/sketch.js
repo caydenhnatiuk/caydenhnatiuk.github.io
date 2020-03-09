@@ -1,24 +1,30 @@
-let rectWidth, rectHeight, speedX, speedY;
-
+// This example is adapted from Learning Processing Example 5-3 by Daniel Shiffman
+// http://www.learningprocessing.com
+// Refactor the following code. Be sure the refactored version:
+//  - is readable
+//  - is able to work easily with any canvas size
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  rectWidth = 200; rectHeight = 300; speedX = random(3, 8); speedY = random(3, 8);// Places rectangle
 }
-
 function draw() {
-  move();
-  background(80, 80, 80);
-  rect(rectWidth, rectHeight, 250, 75);
-}
-
-function move() {
-  rectWidth += speedX; rectHeight += speedY;
-  if (rectHeight >= height - 75 || rectHeight <= 0) {
-    speedY = speedY * -1; 
+  background(255);
+  stroke(0);
+  line(width/2, 0, width/2, height);
+  line(0, height/2, width, height/2);
+  noStroke();
+  fill(0);
+  if (mouseX<240&&mouseY<135){//top left
+    rect(0,0,width/2,height/2);
   }
-
-  if (rectWidth >= width - 250 || rectWidth <= 0) {
-    speedX = speedX * -1;
+  else if (mouseX>240&&mouseY<135){
+    rect(width/2,0,width,height/2);
+  }
+  else if (mouseX<240&&mouseY>135){
+    rect(0,135,240,135);
+  }
+  else if (mouseX>240&&mouseY>135){
+    rect(240,135,240,135);
   }
 }
+
