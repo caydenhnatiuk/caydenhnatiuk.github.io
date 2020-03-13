@@ -2,7 +2,7 @@
 
 const RECT_WIDTH = 10;
 const RECT_HEIGHT = 50;
-let colors = []; //fill with HEX codes as strings
+let colors = ["#D9CEB2","#948C75","#D5DED9","#7A6A53","#99B2B7"]; //fill with HEX codes as strings
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -14,12 +14,14 @@ function draw() {
   randomSeed(0);
   drawRowRGB(height*0.2);
   drawRowHSB(height/2);
+  drawRowCustom(height*0.7);
 }
 
-function customColor(yPos){
-  colorMode(HSB,360,100,100);
+function drawRowCustom(yPos){
+  colorMode(RGB,255);
   for (let x = 0; x<width; x+=RECT_WIDTH){
-    fill();
+    let index = int(random(colors.length));
+    fill(colors[index]);
     rect(x,yPos,RECT_WIDTH,RECT_HEIGHT);
   }
 }
@@ -35,7 +37,7 @@ function drawRowRGB(yPos){
 function drawRowHSB(yPos){
   colorMode(HSB,360,100,100);
   for (let x = 0; x<width; x+=RECT_WIDTH){
-    fill(x/2 % 360,map(mouseY,0,height,0,300),300);
+    fill(x/2 % 360,300,map(mouseY,0,height,0,300));
     rect(x,yPos,RECT_WIDTH,RECT_HEIGHT);
   }
 }
