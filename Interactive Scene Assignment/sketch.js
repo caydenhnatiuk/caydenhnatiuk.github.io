@@ -13,16 +13,10 @@ function setup() {
 
 function draw() {
   background(220);
-  currentBack();
+  backgr();
   character();
   textSize(32);
   text("Cayden Hnatiuk",10,windowHeight-30);
-}
-
-
-
-function currentBack(){
-  mouseWheel();
 }
 
 function sunChange(){// changes the size of the sun
@@ -30,14 +24,14 @@ function sunChange(){// changes the size of the sun
     sunSize = 150;
   }
   if(keyCode === UP_ARROW){
-    sunSize = sunSize +10;//increases size of sun
+    sunSize = sunSize +10;  //increases size of sun
   }
-  if(keyCode === DOWN_ARROW){//decreases size of sun
+  if(keyCode === DOWN_ARROW){  //decreases size of sun
     sunSize = sunSize -10;
   }
 }
 
-function background1(){
+function backgr(){
   sunChange();
   background(53,179,204);
   fill(123,252,3);

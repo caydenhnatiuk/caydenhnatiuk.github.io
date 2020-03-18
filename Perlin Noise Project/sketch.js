@@ -2,6 +2,8 @@
 // Cayden Hnatiuk
 // March 6th / 2020
 
+
+//initializing variables
 let rectWidth = 1;
 let yTime = 10;
 

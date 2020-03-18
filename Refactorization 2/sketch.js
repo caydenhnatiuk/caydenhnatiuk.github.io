@@ -1,26 +1,19 @@
-//Chess Board
+//Black and White Target
 
-const GRID_SPACING = 75;
+let ringSize = 400;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
 }
-
-
 function draw() {
-  placeSquares();
+  background(240);
+  circleSizes();
 }
 
-function placeSquares(){
-  for (let x = 0; x < 600; x += GRID_SPACING){
-    for (let y = 0; y < 600; y += GRID_SPACING){
-      rect(x,y,GRID_SPACING,GRID_SPACING);
-      if (y % 2 === 0 && x % 2 === 0){
-        fill(0);
-      }
-      else if(y % 2 === 1){
-        fill(255);
-      }
-    }
+function circleSizes(){
+  ringSize = 400;
+  for (let i = 0; i < 10; i++){
+    ellipse(width/2,height/2,ringSize,ringSize);
+    ringSize -= 40;
   }
 }
